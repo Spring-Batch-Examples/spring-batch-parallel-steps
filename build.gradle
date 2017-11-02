@@ -1,0 +1,31 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+	mavenCentral();
+}
+buildscript {
+	repositories {
+		mavenCentral() 
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE")
+	}
+}
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter-web:1.5.6.RELEASE') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '1.5.6.RELEASE'
+    compile group: 'org.springframework.batch', name: 'spring-batch-core', version: '3.0.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.10.RELEASE'
+	compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.1.5.RELEASE'
+	
+	compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    
+}
+
